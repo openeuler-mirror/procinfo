@@ -1,6 +1,6 @@
 Name: procinfo
 Version: 18
-Release: 42
+Release: 43
 Summary: A tool for displaying system information
 License: GPL+
 Source: ftp://ftp.cistron.nl/pub/people/00-OLD/svm/procinfo-%{version}.tar.gz
@@ -19,6 +19,7 @@ Patch14: procinfo-18-version.patch
 Patch15: procinfo-18-man-comment.patch
 Patch16: procinfo-18-socklist.patch
 Patch17: procinfo-18-idle-overflow.patch
+Patch18: procinfo-strsignal.patch
 
 BuildRequires:  ncurses-devel gcc
 
@@ -49,6 +50,7 @@ This package contains documentation for procinfo.
 %patch15 -p1
 %patch16 -p0
 %patch17 -p1
+%patch18 -p1
 
 %build
 make RPM_OPT_FLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses" LDFLAGS= LDLIBS=-lncurses
@@ -71,5 +73,8 @@ make install prefix=$RPM_BUILD_ROOT/usr mandir=$RPM_BUILD_ROOT/%{_mandir}
 %{_mandir}/man8/socklist.8*
 
 %changelog
+* Sat Aug 07 2021 caodongxia<caodongxia@huawei.com> - 18-43
+- Use strsignal not sys_siglist
+
 * Thu Feb 13 2020 openEuler Buildteam <buildteam@openeuler.org> - 18-42
 - DESC:update the spec
