@@ -1,6 +1,6 @@
 Name: procinfo
 Version: 18
-Release: 43
+Release: 44
 Summary: A tool for displaying system information
 License: GPL+
 Source: ftp://ftp.cistron.nl/pub/people/00-OLD/svm/procinfo-%{version}.tar.gz
@@ -21,7 +21,7 @@ Patch16: procinfo-18-socklist.patch
 Patch17: procinfo-18-idle-overflow.patch
 Patch18: procinfo-strsignal.patch
 
-BuildRequires:  ncurses-devel gcc
+BuildRequires:  ncurses-devel gcc make
 
 %package help
 Summary: Documentation for procinfo
@@ -73,6 +73,9 @@ make install prefix=$RPM_BUILD_ROOT/usr mandir=$RPM_BUILD_ROOT/%{_mandir}
 %{_mandir}/man8/socklist.8*
 
 %changelog
+* Wed Dec 14 2022 Ge Wang <wangge20@h-partners.com> - 18-44
+- Add build require make
+
 * Sat Aug 07 2021 caodongxia<caodongxia@huawei.com> - 18-43
 - Use strsignal not sys_siglist
 
