@@ -1,6 +1,6 @@
 Name: procinfo
 Version: 18
-Release: 44
+Release: 45
 Summary: A tool for displaying system information
 License: GPL+
 Source: ftp://ftp.cistron.nl/pub/people/00-OLD/svm/procinfo-%{version}.tar.gz
@@ -20,6 +20,7 @@ Patch15: procinfo-18-man-comment.patch
 Patch16: procinfo-18-socklist.patch
 Patch17: procinfo-18-idle-overflow.patch
 Patch18: procinfo-strsignal.patch
+Patch19: fix-cc.patch
 
 BuildRequires:  ncurses-devel gcc make
 
@@ -35,6 +36,7 @@ This package contains documentation for procinfo.
 
 %prep
 %setup -q
+%patch19 -p1
 %patch0 -p1
 %patch3 -p1
 %patch5 -p1
@@ -73,6 +75,9 @@ make install prefix=$RPM_BUILD_ROOT/usr mandir=$RPM_BUILD_ROOT/%{_mandir}
 %{_mandir}/man8/socklist.8*
 
 %changelog
+* Tue Apr 18 2023 yoo <hlefthleft@gmail.com> - 18-45
+- Fix CC compiler support
+
 * Wed Dec 14 2022 Ge Wang <wangge20@h-partners.com> - 18-44
 - Add build require make
 

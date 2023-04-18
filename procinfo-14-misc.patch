@@ -2,10 +2,10 @@
 +++ procinfo-14/Makefile	Thu Sep 10 11:06:29 1998
 @@ -4,7 +4,7 @@
  
- CC = gcc -Wall -Wstrict-prototypes
+ CC ?= gcc
  
--CFLAGS = -O2
-+CFLAGS = $(RPM_OPT_FLAGS)
+-CFLAGS = -O2 -Wall -Wstrict-prototypes
++CFLAGS = $(RPM_OPT_FLAGS) -Wall -Wstrict-prototypes
  LDFLAGS = -s
  
  # If you get lots of `undefined references', you probably need -lncurses

@@ -6,7 +6,7 @@
  prefix=/usr
 +mandir=$(prefix)/man
  
- CC = gcc -Wall -Wstrict-prototypes
+ CC ?= gcc
  
 @@ -33,13 +34,13 @@
  

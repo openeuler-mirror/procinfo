@@ -1,0 +1,15 @@
+diff -u -r procinfo-18/Makefile procinfo-18/Makefile
+--- procinfo-18/Makefile	2001-02-25 07:29:53.000000000 +0800
++++ procinfo-18/Makefile	2023-04-18 10:37:11.000000000 +0800
+@@ -2,9 +2,9 @@
+ 
+ prefix=/usr
+ 
+-CC = gcc -Wall -Wstrict-prototypes
++CC ?= gcc
+ 
+-CFLAGS = -O2
++CFLAGS = -O2 -Wall -Wstrict-prototypes
+ LDFLAGS = -s
+ 
+ # If you get lots of `undefined references', you probably need -lncurses
